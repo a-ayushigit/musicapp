@@ -4,7 +4,7 @@ import logout2 from '../../public/logout2.svg'
 import settings from '../../public/settings.svg'
 const Bottombar = () => {
   return (
-    <div className="flex flex-col p-4 gap-1">
+    <div className="flex flex-col p-4 gap-1 mb-4">
       <p className="text-xs">General</p>
       <ul>
       <li>

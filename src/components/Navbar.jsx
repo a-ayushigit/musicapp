@@ -6,7 +6,7 @@ import discover from '../../public/discover.svg'
 
 const Navbar = () => {
   return (
-    <div className="flex flex-col p-4 gap-1">
+    <div className="flex flex-col p-4 gap-1 mt-1">
     <p className="text-xs">Menu</p>
     <ul>
         <li>
