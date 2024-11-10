@@ -5,7 +5,7 @@ import TopBar from '../components/TopBar'
 import Searchbar from '../components/Searchbar'
 import CoverImage from '../components/CoverImage'
 import Playbar from '../components/Playbar'
-import logo from '../../public/logo.svg'
+import logo from '../assets/logo.svg'
 import Playbox from '../components/Playbox'
 
 const Home = () => {
@@ -31,14 +31,14 @@ const Home = () => {
         </div>
        
     </div>
-    <div className="flex flex-col justify-between col-span-4 bg-gradient-to-t from-zinc-950 from-10% to-red-900 text-white">
+    <div className="flex flex-col justify-between col-span-4 bg-gradient-to-t from-zinc-950 from-30% to-red-900 text-white">
         <div className="flex flex-row items-center justify-between p-12 gap-10">
             <TopBar/>
             <Searchbar/>
         </div> 
-        <div>
-          <CoverImage/>
-        </div>
+        {/* <div>
+          <CoverImage song={selectedsong}/>
+        </div> */}
         <div>
             <Playbar/>
         </div>

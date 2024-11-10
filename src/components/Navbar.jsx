@@ -1,8 +1,8 @@
 import React from 'react'
-import home from '../../public/home.svg'
-import trends from '../../public/trends.svg'
-import library from '../../public/library.svg'
-import discover from '../../public/discover.svg'
+import home from '../assets/home.svg'
+import trends from '../assets/trends.svg'
+import library from '../assets/library.svg'
+import discover from '../assets/discover.svg'
 
 const Navbar = () => {
   return (

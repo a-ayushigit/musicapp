@@ -1,7 +1,7 @@
 import React from 'react'
-import logout1 from '../../public/logout1.svg'
-import logout2 from '../../public/logout2.svg'
-import settings from '../../public/settings.svg'
+import logout1 from '../assets/logout1.svg'
+import logout2 from '../assets/logout2.svg'
+import settings from '../assets/settings.svg'
 const Bottombar = () => {
   return (
     <div className="flex flex-col p-4 gap-1 mb-4">
