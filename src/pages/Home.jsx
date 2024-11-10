@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Bottombar from '../components/Bottombar'
 import TopBar from '../components/TopBar'
@@ -7,8 +7,34 @@ import CoverImage from '../components/CoverImage'
 import Playbar from '../components/Playbar'
 import logo from '../assets/logo.svg'
 import Playbox from '../components/Playbox'
+import {closestCorners, DndContext} from '@dnd-kit/core';
+import {songList} from '../constants';
+import { arrayMove } from '@dnd-kit/sortable'
 
 const Home = () => {
+  const [songlist , setSonglist] = useState([]);
+  useEffect(()=>{
+    setSonglist(songList);
+  },[])
+
+  const getSongPos = (id) => songlist.findIndex(song => song.id === id); 
+  const handleDragEnd = (e) => {
+    const {active, over} = e;
+    //active = element we are currently dragging 
+    // over = element which will be replaced once we let go of the element
+
+    if(active.id === over.id) return;
+
+    setSonglist(songlist => {
+      const origpos = getSongPos(active.id);
+      const newpos = getSongPos(over.id);
+
+      return arrayMove(songlist , origpos , newpos);
+    })
+
+
+
+  }
   return (
     <div className="grid grid-cols-8 min-h-screen">
     <div className="col-span-2 flex flex-col justify-between items-stretch bg-zinc-950 text-white">
@@ -36,11 +62,12 @@ const Home = () => {
             <TopBar/>
             <Searchbar/>
         </div> 
-        {/* <div>
-          <CoverImage song={selectedsong}/>
-        </div> */}
+        
         <div>
-            <Playbar/>
+          <DndContext collisionDetection={closestCorners} onDragEnd={(e)=>handleDragEnd(e)}>
+          <Playbar songlist={songlist}/>
+          </DndContext>
+          
         </div>
     </div>
     <div className="flex flex-col col-span-2 items-center justify-end bg-gradient-to-t from-zinc-950 from-5% to-red-950 text-white ">
